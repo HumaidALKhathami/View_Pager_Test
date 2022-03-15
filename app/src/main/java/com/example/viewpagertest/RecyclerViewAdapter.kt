@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-
 class RecyclerViewAdapter(
     private val innerList: List<String>
 ): RecyclerView.Adapter<RecyclerViewHolder>(){
@@ -25,9 +24,12 @@ class RecyclerViewAdapter(
 
 class RecyclerViewHolder(view: View): RecyclerView.ViewHolder(view){
 
-    private val textView : TextView = view.findViewById(R.id.textView)
+    private var textView : TextView =view.findViewById(R.id.textView)
 
     fun bind (item: String){
-        textView.text = item
+        textView.readMoreText(item,"...Show more", "...Show less")
+//        textView.setShowingLine(3)
+//        textView.setShowingChar(50)
+
     }
 }

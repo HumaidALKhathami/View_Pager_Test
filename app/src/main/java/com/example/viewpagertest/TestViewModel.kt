@@ -1,22 +1,26 @@
 package com.example.viewpagertest
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 
 class TestViewModel : ViewModel() {
-    val innerList : MutableList<String> = mutableListOf()
+    val outerList: MutableList<String> = mutableListOf()
 
-    val outerList : MutableList<String> = mutableListOf()
+
+    var fragments: List<Fragment> = listOf(
+        RecyclerViewFragment(),
+        RecyclerViewFragment(),
+        RecyclerViewFragment(),
+        RecyclerViewFragment(),
+        RecyclerViewFragment(),
+        RecyclerViewFragment(),
+    )
 
 
     init {
-        for ( i in 1..100){
-            innerList.add("item #$i")
-        }
-
-        for ( i in 1..20){
+        for (i in 1..6) {
             outerList.add("tab #$i")
         }
-
     }
 
 }
